@@ -80,22 +80,21 @@ const loadExitLogsTabulator = async () => {
                     title: "Timestamp",
                     field: "timestamp",
                     sorter: "string",
-                    resizable: true,
+                    resizable: "header",
                     formatter: (cell) => convertToAlaskaTime(cell.getValue()),
                 },
                 {
                     title: "Project",
                     field: "project_name",
                     sorter: "string",
-                    resizable: true,
-
+                    resizable: "header",
                 },
                 {
                     title: "Status",
                     field: "exit_code",
                     sorter: "string",
                     hozAlign: "center",
-                    resizable: true,
+                    resizable: "header",
                     formatter: (cell) => getExitStatusLabel(cell.getValue()),
                 }
             ],
