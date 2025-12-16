@@ -1,0 +1,136 @@
+/* #region css variables */
+:root {
+
+    /* ui colors */
+    --bg-primary: #ffffff;
+    --bg-next-task-executions: #d5eafaea;
+
+    --border-light: #ddd;
+    --border-tabulator-cells: #000;
+
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-inverse: white;
+
+    /* tabulator row exit status colors */
+    --ok: #d1e7dd;
+    --warning: #fff3cd;
+    --error: #f8d7da;
+    --critical: #dc3545;
+    --fatal: #6c1825;
+
+}
+/* #endregion */
+
+
+/* #region reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* #endregion */
+
+
+/* #region base styles */
+body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    padding: 1rem;
+}
+
+h1 { margin-bottom: 0.5rem; font-size: 1.75rem; }
+
+h2 { margin-bottom: 1rem; font-size: 1.25rem; }
+/* #endregion */
+
+
+/* #region layout */
+header, main {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    background: var(--bg-primary);
+    border: 5px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+section {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+/* #endregion */
+
+
+/* #region components */
+.header-timestamp {
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+#next-executions-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.next-executions { background: var(--bg-next-task-executions); }
+
+.execution-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.execution-item strong { display: block; margin-bottom: 0.5rem; }
+
+.execution-item time { color: var(--text-secondary); font-size: 0.9rem; }
+/* #endregion */
+
+
+/* #region tabulator overrides */
+.tabulator { font-size: 0.9rem; }
+
+.tabulator-header {
+    background: var(--bg-primary);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.tabulator-cell {
+    border-right: 1px solid var(--border-tabulator-cells);
+    border-bottom: 1px solid var(--border-tabulator-cells);
+}
+
+.tabulator-row.exit-ok { background: var(--ok); }
+
+.tabulator-row.exit-warning { background: var(--warning); }
+
+.tabulator-row.exit-error { background: var(--error); }
+
+.tabulator-row.exit-critical { background: var(--critical); color: var(--text-inverse); }
+
+.tabulator-row.exit-fatal { background: var(--fatal); color: var(--text-inverse); }
+/* #endregion */
+
+/* #region media queries */
+@media (max-width: 768px) {
+    body { padding: 0.5rem; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    section { padding: 1rem; }
+    #next-executions-list { grid-template-columns: 1fr; }
+}
+/* #endregion */
