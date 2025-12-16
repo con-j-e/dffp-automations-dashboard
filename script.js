@@ -89,17 +89,6 @@ const loadExitLogsTabulator = async () => {
                     sorter: "string",
                 },
                 {
-                    title: "Script",
-                    field: "script_name",
-                    sorter: "string",
-                },
-                {
-                    title: "Exit Code",
-                    field: "exit_code",
-                    sorter: "number",
-                    hozAlign: "center",
-                },
-                {
                     title: "Status",
                     field: "exit_code",
                     sorter: "string",
