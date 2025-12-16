@@ -125,6 +125,7 @@ section {
 .tabulator-row.exit-fatal { background: var(--fatal); color: var(--text-inverse); }
 /* #endregion */
 
+
 /* #region media queries */
 @media (max-width: 768px) {
     body { padding: 0.5rem; }
