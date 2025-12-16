@@ -71,8 +71,6 @@ const loadExitLogsTabulator = async () => {
             pagination: "local",
             paginationSize: 25,
             paginationCounter: "rows",
-            movableColumns: true,
-            resizableRows: true,
             resizableColumnFit:true,
             initialSort: [
                 { column: "timestamp", dir: "desc" }
