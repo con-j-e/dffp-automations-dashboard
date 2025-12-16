@@ -42,12 +42,6 @@
         "exit_code":1
     },
     {
-        "timestamp":"2025-12-12T11:32:54Z",
-        "project_name":"medevac_runway_search",
-        "script_name":"main",
-        "exit_code":50
-    },
-    {
         "timestamp":"2025-12-12T12:16:59Z",
         "project_name":"regional_kmz_for_ftp",
         "script_name":"main",
@@ -100,12 +94,6 @@
         "project_name":"dnr_fuel_treatments_update",
         "script_name":"main",
         "exit_code":1
-    },
-    {
-        "timestamp":"2025-12-14T11:31:23Z",
-        "project_name":"medevac_runway_search",
-        "script_name":"main",
-        "exit_code":50
     },
     {
         "timestamp":"2025-12-14T12:17:25Z",
@@ -174,21 +162,9 @@
         "exit_code":1
     },
     {
-        "timestamp":"2025-12-16T16:45:18Z",
+        "timestamp":"2025-12-16T18:21:10Z",
         "project_name":"dffp_automations_dashboard",
         "script_name":"main",
-        "exit_code":-999
-    },
-    {
-        "timestamp":"2025-12-16T16:46:57Z",
-        "project_name":"dffp_automations_dashboard",
-        "script_name":"main",
-        "exit_code":-999
-    },
-    {
-        "timestamp":"2025-12-16T18:14:26Z",
-        "project_name":"dffp_automations_dashboard",
-        "script_name":"main",
-        "exit_code":-999
+        "exit_code":1
     }
 ]
