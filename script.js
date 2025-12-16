@@ -67,12 +67,13 @@ const loadExitLogsTabulator = async () => {
         const table = new Tabulator("#exit-log-table", {
             data: exitLogs,
             height:"100%",
-            layout: "fitColumns",
+            layout: "fitDataStretch",
             pagination: "local",
             paginationSize: 25,
             paginationCounter: "rows",
             movableColumns: true,
             resizableRows: true,
+            resizableColumnFit:true,
             initialSort: [
                 { column: "timestamp", dir: "desc" }
             ],
@@ -81,18 +82,22 @@ const loadExitLogsTabulator = async () => {
                     title: "Timestamp",
                     field: "timestamp",
                     sorter: "string",
+                    resizable: true,
                     formatter: (cell) => convertToAlaskaTime(cell.getValue()),
                 },
                 {
                     title: "Project",
                     field: "project_name",
                     sorter: "string",
+                    resizable: true,
+
                 },
                 {
                     title: "Status",
                     field: "exit_code",
                     sorter: "string",
                     hozAlign: "center",
+                    resizable: true,
                     formatter: (cell) => getExitStatusLabel(cell.getValue()),
                 }
             ],
