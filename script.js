@@ -82,12 +82,8 @@ const loadExitLogsTabulator = async () => {
                     sorterParams: {format: "MM-dd"},
                     resizable: "header",
                     headerFilter: "date",
-                    headerFilterParams: {
-                        min: "2025-01-01",
-                        max: "2026-01-01",
-                        format: "MM-dd",
-                    },
-                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("MM-dd")
+                    headerFilterParams: {format: "MM-dd"},
+                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("MM-dd"),
                 },
                 {
                     title: "Time",
@@ -98,7 +94,7 @@ const loadExitLogsTabulator = async () => {
                     headerFilter: "time",
                     headerFilterParams: {format: "HH:mm:ss"},
                     headerFilterFunc: ">=",
-                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("HH:mm:ss")
+                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("HH:mm:ss"),
                 },
                 {
                     title: "Project",
