@@ -68,30 +68,26 @@ const loadExitLogsTabulator = async () => {
         const table = new Tabulator("#exit-log-table", {
             data: exitLogs,
             height:"100%",
-            layout: "fitColumns",
+            layout: "fitDataStretch",
             pagination:true,
             paginationSize:25,
             paginationSizeSelector:[25, 50, 100, true],
             paginationButtonCount:0,
             resizableColumnFit:true,
-            initialSort: [
-                {column: "date", dir: "desc"},
-                {column: "time", dir: "desc"},
-            ],
             columns: [
                 {
                     title: "Date",
                     field: "date",
                     sorter: "date",
-                    sorterParams: {format: "yyyy-MM-dd"},
+                    sorterParams: {format: "MM-dd"},
                     resizable: "header",
                     headerFilter: "date",
                     headerFilterParams: {
                         min: "2025-01-01",
                         max: "2026-01-01",
-                        format: "yyyy-MM-dd",
+                        format: "MM-dd",
                     },
-                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("yyyy-MM-dd")
+                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("MM-dd")
                 },
                 {
                     title: "Time",
