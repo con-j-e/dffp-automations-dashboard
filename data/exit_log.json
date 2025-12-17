@@ -1,26 +1,5 @@
 [
     {
-        "project_name":"dffp_automations_dashboard",
-        "script_name":"main",
-        "exit_code":1,
-        "date":"2025-12-17T09:00:00Z",
-        "time":"2000-01-01T22:20:46Z"
-    },
-    {
-        "project_name":"dffp_automations_dashboard",
-        "script_name":"main",
-        "exit_code":1,
-        "date":"2025-12-17T09:00:00Z",
-        "time":"2000-01-01T21:53:05Z"
-    },
-    {
-        "project_name":"dffp_automations_dashboard",
-        "script_name":"main",
-        "exit_code":1,
-        "date":"2025-12-17T09:00:00Z",
-        "time":"2000-01-01T13:30:51Z"
-    },
-    {
         "project_name":"regional_kmz_for_ftp",
         "script_name":"main",
         "exit_code":1,
