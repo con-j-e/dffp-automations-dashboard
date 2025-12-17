@@ -65,10 +65,12 @@ const loadExitLogsTabulator = async () => {
         const response = await fetch("data/exit_log.json");
         const exitLogs = await response.json();
 
+        const mobileQuery = window.matchMedia("(max-width: 768px)");
+
         const table = new Tabulator("#exit-log-table", {
             data: exitLogs,
             height:"100%",
-            layout: "fitDataStretch",
+            layout: mobileQuery.matches ? "fitDataStretch" : "fitColumns",
             pagination:true,
             paginationSize:25,
             paginationSizeSelector:[25, 50, 100, true],
