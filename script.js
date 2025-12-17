@@ -20,25 +20,26 @@ const EXIT_STATUS_MAP = {
     [EXIT_CODES.FATAL]: { label: "FATAL", class: "exit-fatal" }
 };
 
-const convertToAlaskaTime = (isoFormatTimestamp) => {
-    return luxon.DateTime.fromISO(isoFormatTimestamp, {zone: "utc"})
-        .setZone("America/Anchorage")
-        .toLocaleString({
-            weekday: "long",
-            month: "long",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hourCycle: "h23"
-        });
-};
+const utcIsoToLuxonAkt = (utcIso) => luxon.DateTime.fromISO(utcIso, {zone: "utc"}).setZone("America/Anchorage")
+
+const utcIsoToLongAktString = (utcIso) => {
+    luxonAkt = utcIsoToLuxonAkt(utcIso);
+    return luxonAkt.toLocaleString({
+        weekday: "long",
+        month: "long",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hourCycle: "h23"
+    });
+}
 
 const loadLastUpdatedTimestamp = async () => {
     try {
         const response = await fetch("data/last_updated.json");
         const data_gen_timestamp = await response.json();
-        const last_updated = convertToAlaskaTime(data_gen_timestamp.last_updated);
+        const last_updated = utcIsoToLongAktString(data_gen_timestamp.last_updated);
         document.getElementById("last-updated").textContent = last_updated;
     } catch (error) {
         console.error("Error loading last updated timestamp:", error);
@@ -67,27 +68,49 @@ const loadExitLogsTabulator = async () => {
         const table = new Tabulator("#exit-log-table", {
             data: exitLogs,
             height:"100%",
-            layout: "fitDataStretch",
-            pagination: "local",
-            paginationSize: 25,
-            paginationCounter: "rows",
+            layout: "fitColumns",
+            pagination:true,
+            paginationSize:25,
+            paginationSizeSelector:[25, 50, 100, true],
+            paginationButtonCount:0,
             resizableColumnFit:true,
             initialSort: [
-                { column: "timestamp", dir: "desc" }
+                {column: "date", dir: "desc"},
+                {column: "time", dir: "desc"},
             ],
             columns: [
                 {
-                    title: "Timestamp",
-                    field: "timestamp",
-                    sorter: "string",
+                    title: "Date",
+                    field: "date",
+                    sorter: "date",
+                    sorterParams: {format: "yyyy-MM-dd"},
                     resizable: "header",
-                    formatter: (cell) => convertToAlaskaTime(cell.getValue()),
+                    headerFilter: "date",
+                    headerFilterParams: {
+                        min: "2025-01-01",
+                        max: "2026-01-01",
+                        format: "yyyy-MM-dd",
+                    },
+                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("yyyy-MM-dd")
+                },
+                {
+                    title: "Time",
+                    field: "time",
+                    sorter: "time",
+                    sorterParams:{format: "HH:mm:ss"},
+                    resizable: "header",
+                    headerFilter: "time",
+                    headerFilterParams: {format: "HH:mm:ss"},
+                    headerFilterFunc: ">=",
+                    mutator: (value) => utcIsoToLuxonAkt(value).toFormat("HH:mm:ss")
                 },
                 {
                     title: "Project",
                     field: "project_name",
                     sorter: "string",
                     resizable: "header",
+                    headerFilter: "list",
+                    headerFilterParams: {valuesLookup: "active"},
                 },
                 {
                     title: "Status",
@@ -95,6 +118,10 @@ const loadExitLogsTabulator = async () => {
                     sorter: "string",
                     hozAlign: "center",
                     resizable: "header",
+                    headerFilter: "list",
+                    headerFilterParams: {
+                        valuesLookup: () => Object.entries(EXIT_CODES).map(([label, value]) => ({label, value}))
+                    },
                     formatter: (cell) => getExitStatusLabel(cell.getValue()),
                 }
             ],
@@ -120,7 +147,7 @@ const loadNextExecutions = async () => {
             item.className = "execution-item";
             item.innerHTML = `
                 <strong>${projectName}</strong>
-                <time>${convertToAlaskaTime(executionTime)}</time>
+                <time>${utcIsoToLongAktString(executionTime)}</time>
             `;
             container.appendChild(item);
         }
