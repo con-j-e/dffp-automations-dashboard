@@ -104,7 +104,7 @@ const loadExitLogsTabulator = async () => {
                     sorter: "string",
                     resizable: "header",
                     headerFilter: "list",
-                    headerFilterParams: {valuesLookup: "active"},
+                    headerFilterParams: {valuesLookup: "active", sort: "asc"},
                 },
                 {
                     title: "Status",
