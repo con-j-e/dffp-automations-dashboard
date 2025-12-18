@@ -127,7 +127,7 @@ section {
 
 
 /* #region media queries */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     body { padding: 0.5rem; }
     h1 { font-size: 1.5rem; }
     h2 { font-size: 1.25rem; }
