@@ -3,6 +3,48 @@
         "project_name":"regional_kmz_for_ftp",
         "script_name":"main",
         "exit_code":1,
+        "date":"2025-12-23T09:00:00Z",
+        "time":"2000-01-01T12:16:58Z"
+    },
+    {
+        "project_name":"medevac_runway_search",
+        "script_name":"main",
+        "exit_code":1,
+        "date":"2025-12-23T09:00:00Z",
+        "time":"2000-01-01T11:31:05Z"
+    },
+    {
+        "project_name":"dnr_fuel_treatments_update",
+        "script_name":"main",
+        "exit_code":1,
+        "date":"2025-12-23T09:00:00Z",
+        "time":"2000-01-01T11:15:55Z"
+    },
+    {
+        "project_name":"cruise_plots_merge",
+        "script_name":"main",
+        "exit_code":1,
+        "date":"2025-12-23T09:00:00Z",
+        "time":"2000-01-01T11:01:25Z"
+    },
+    {
+        "project_name":"ak_parcels",
+        "script_name":"main",
+        "exit_code":1,
+        "date":"2025-12-23T09:00:00Z",
+        "time":"2000-01-01T10:21:01Z"
+    },
+    {
+        "project_name":"dffp_automations_dashboard",
+        "script_name":"main",
+        "exit_code":1,
+        "date":"2025-12-22T09:00:00Z",
+        "time":"2000-01-01T13:31:05Z"
+    },
+    {
+        "project_name":"regional_kmz_for_ftp",
+        "script_name":"main",
+        "exit_code":1,
         "date":"2025-12-22T09:00:00Z",
         "time":"2000-01-01T12:16:53Z"
     },
